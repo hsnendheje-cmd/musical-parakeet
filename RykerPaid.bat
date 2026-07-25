@@ -1,5 +1,4 @@
-��&cls
-@echo off
+挦獬਍﻿@echo off
 setlocal enabledelayedexpansion
 cls
 chcp 65001 >nul 2>&1
@@ -42,7 +41,7 @@ goto :run_RykerPaid_menu
 set "MENU_PICK="
 set "MENU_RESULT=%TEMP%\RykerPaid_menu_%RANDOM%%RANDOM%.txt"
 if exist "%MENU_RESULT%" del /f /q "%MENU_RESULT%" >nul 2>&1
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$out=$env:MENU_RESULT;$rpc=$env:USE_RPC -eq '1';$items=@();$ids=@();$items+='EAC Bypass';$ids+='eac';$items+='RykerPaid Menu';$ids+='menu';$items+='Recheck Environment';$ids+='recheck';$art=@('  ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗ ','  ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗','  ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝','  ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗','  ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║','  ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝');$selected=0;try{[Console]::CursorVisible=$false;while($true){[Console]::Clear();[Console]::ForegroundColor='Magenta';foreach($line in $art){[Console]::WriteLine($line)};[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::ForegroundColor='Magenta';[Console]::WriteLine('              RYKER Frida Engine Controller');[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('                   discord.gg/bGkrWETD6');[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::WriteLine('');[Console]::WriteLine('    Up/Down = Navigate   Enter = Launch   D = Toggle Discord RPC');[Console]::WriteLine('    Discord RPC Status: '+$(if($rpc){'Enabled'}else{'Disabled'}));[Console]::WriteLine('');for($i=0;$i -lt $items.Count;$i++){if($i -eq $selected){[Console]::ForegroundColor='White';[Console]::BackgroundColor='DarkMagenta';[Console]::WriteLine(' > '+$items[$i]+' ');[Console]::ResetColor()}else{[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   '+$items[$i]);[Console]::ResetColor()}};$key=[Console]::ReadKey($true);if($key.Key -eq 'UpArrow'){$selected=($selected+$items.Count-1)%%$items.Count}elseif($key.Key -eq 'DownArrow'){$selected=($selected+1)%%$items.Count}elseif($key.Key -eq 'Enter'){Set-Content -LiteralPath $out -Value $ids[$selected];break}elseif($key.Key -eq 'D'){Set-Content -LiteralPath $out -Value 'toggle_rpc';break}}}finally{[Console]::ResetColor();[Console]::CursorVisible=$true}"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$out=$env:MENU_RESULT;$rpc=$env:USE_RPC -eq '1';$items=@();$ids=@();$items+='EAC Bypass';$ids+='eac';$items+='RykerPaid Menu';$ids+='menu';$items+='Recheck Environment';$ids+='recheck';$art=@('  ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗ ','  ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗','  ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝','  ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗','  ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║','  ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝');$selected=0;try{[Console]::CursorVisible=$false;while($true){[Console]::Clear();[Console]::ForegroundColor='Magenta';foreach($line in $art){[Console]::WriteLine($line)};[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::ForegroundColor='Magenta';[Console]::WriteLine('              RYKER Frida Engine Controller');[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('                   discord.gg/bGkrWETD6');[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::WriteLine('');[Console]::WriteLine('    Up/Down or W/S = Navigate   Enter = Launch   D = Toggle Discord RPC');[Console]::WriteLine('    Discord RPC Status: '+$(if($rpc){'Enabled'}else{'Disabled'}));[Console]::WriteLine('');for($i=0;$i -lt $items.Count;$i++){if($i -eq $selected){[Console]::ForegroundColor='White';[Console]::BackgroundColor='DarkMagenta';[Console]::WriteLine(' > '+$items[$i]+' ');[Console]::ResetColor()}else{[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   '+$items[$i]);[Console]::ResetColor()}};$key=[Console]::ReadKey($true);if($key.Key -eq 'UpArrow' -or $key.Key -eq 'W'){$selected=($selected+$items.Count-1)%%$items.Count}elseif($key.Key -eq 'DownArrow' -or $key.Key -eq 'S'){$selected=($selected+1)%%$items.Count}elseif($key.Key -eq 'Enter'){Set-Content -LiteralPath $out -Value $ids[$selected];break}elseif($key.Key -eq 'D'){Set-Content -LiteralPath $out -Value 'toggle_rpc';break}}}finally{[Console]::ResetColor();[Console]::CursorVisible=$true}"
 if exist "%MENU_RESULT%" (
     set /p "MENU_PICK="<"%MENU_RESULT%"
     del /f /q "%MENU_RESULT%" >nul 2>&1
@@ -292,14 +291,34 @@ exit /b 0
 
 :banner
 cls
-echo %PURPLE%%BOLD%
-echo    ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗
-echo    ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗
-echo    ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝
-echo    ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗
-echo    ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║
-echo    ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝
-echo %RESET%
+@echo off
+chcp 65001 >nul
+setlocal EnableDelayedExpansion
+
+for /f %%a in ('echo prompt $E ^| cmd') do set "ESC=%%a"
+
+set "C1=%ESC%[1m%ESC%[38;2;208;160;255m"
+set "C2=%ESC%[1m%ESC%[38;2;182;126;245m"
+set "C3=%ESC%[1m%ESC%[38;2;156;94;231m"
+set "C4=%ESC%[1m%ESC%[38;2;128;64;208m"
+set "C5=%ESC%[1m%ESC%[38;2;100;40;176m"
+set "C6=%ESC%[1m%ESC%[38;2;72;20;140m"
+set "RESET=%ESC%[0m"
+
+echo !C1!   ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗
+echo !C2!   ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗
+echo !C3!   ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝
+echo !C4!   ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗
+echo !C5!   ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║
+echo !C6!   ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝
+echo.
+echo !C2!        ██████╗   █████╗  ██╗ ██████╗
+echo !C3!        ██╔══██╗ ██╔══██╗ ██║ ██╔══██╗
+echo !C4!        ██████╔╝ ███████║ ██║ ██║  ██║
+echo !C5!        ██╔═══╝  ██╔══██║ ██║ ██║  ██║
+echo !C6!        ██║      ██║  ██║ ██║ ██████╔╝
+echo !C7!        ╚═╝      ╚═╝  ╚═╝ ╚═╝ ╚═════╝
+echo !RESET!
 exit /b 0
 
 :_patchLauncher
