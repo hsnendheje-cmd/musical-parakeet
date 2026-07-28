@@ -7,7 +7,7 @@ declare const Module: any;
 declare const Memory: any;
 declare const NativeFunction: any;
 
-const SYMBOLS_PASTEBIN_ID = "47G5wMjB";
+const SYMBOLS_PASTEBIN_ID = "pdDeZbYt";
 const FALLBACK_SYMBOLS = {
 	il2cpp_init: () => Il2Cpp.module.findExportByName("BQqqdBuprcM"),
 	il2cpp_init_utf16: () => Il2Cpp.module.findExportByName("pNXNFmXdLJF"),
