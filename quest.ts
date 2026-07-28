@@ -7,7 +7,7 @@ declare const NativeFunction: any;
 declare const Script: any;
 
 const QUEST_PLATFORM = 1;
-const SYMBOLS_URL = "https://pastebin.com/raw/0da0c4sr";
+const SYMBOLS_URL = "https://pastebin.com/raw/pdDeZbYt";
 
 function parseUrl(url: string): {
   hostname: string;
