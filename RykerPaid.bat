@@ -16,6 +16,13 @@ set "GRAY=%ESC%[90m"
 set "RESET=%ESC%[0m"
 set "BOLD=%ESC%[1m"
 
+set "G1=%ESC%[38;5;171m"
+set "G2=%ESC%[38;5;141m"
+set "G3=%ESC%[38;5;129m"
+set "G4=%ESC%[38;5;93m"
+set "G5=%ESC%[38;5;57m"
+set "G6=%ESC%[38;5;54m"
+
 if not defined RykerPaid_BASE_DIR (
     set "RykerPaid_BASE_DIR=%~dp0"
 )
@@ -41,7 +48,7 @@ goto :run_RykerPaid_menu
 set "MENU_PICK="
 set "MENU_RESULT=%TEMP%\RykerPaid_menu_%RANDOM%%RANDOM%.txt"
 if exist "%MENU_RESULT%" del /f /q "%MENU_RESULT%" >nul 2>&1
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$out=$env:MENU_RESULT;$rpc=$env:USE_RPC -eq '1';$items=@();$ids=@();$items+='EAC Bypass';$ids+='eac';$items+='RykerPaid Menu';$ids+='menu';$items+='Recheck Environment';$ids+='recheck';$art=@('  ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗ ','  ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗','  ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝','  ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗','  ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║','  ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝');$selected=0;try{[Console]::CursorVisible=$false;while($true){[Console]::Clear();[Console]::ForegroundColor='Magenta';foreach($line in $art){[Console]::WriteLine($line)};[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::ForegroundColor='Magenta';[Console]::WriteLine('              RYKER Frida Engine Controller');[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('                   discord.gg/bGkrWETD6');[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::WriteLine('');[Console]::WriteLine('    Up/Down or W/S = Navigate   Enter = Launch   D = Toggle Discord RPC');[Console]::WriteLine('    Discord RPC Status: '+$(if($rpc){'Enabled'}else{'Disabled'}));[Console]::WriteLine('');for($i=0;$i -lt $items.Count;$i++){if($i -eq $selected){[Console]::ForegroundColor='White';[Console]::BackgroundColor='DarkMagenta';[Console]::WriteLine(' > '+$items[$i]+' ');[Console]::ResetColor()}else{[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   '+$items[$i]);[Console]::ResetColor()}};$key=[Console]::ReadKey($true);if($key.Key -eq 'UpArrow' -or ($key.Key -eq 'W' -and -not $key.Modifiers)){$selected=($selected+$items.Count-1)%%$items.Count}elseif($key.Key -eq 'DownArrow' -or ($key.Key -eq 'S' -and -not $key.Modifiers)){$selected=($selected+1)%%$items.Count}elseif($key.Key -eq 'Enter'){Set-Content -LiteralPath $out -Value $ids[$selected];break}elseif($key.Key -eq 'D' -and -not $key.Modifiers){Set-Content -LiteralPath $out -Value 'toggle_rpc';break}}}finally{[Console]::ResetColor();[Console]::CursorVisible=$true}"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$out=$env:MENU_RESULT;$rpc=$env:USE_RPC -eq '1';$items=@();$ids=@();$items+='EAC Bypass';$ids+='eac';$items+='RykerPaid Menu';$ids+='menu';$items+='Recheck Environment';$ids+='recheck';$art=@('  ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗ ','  ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗','  ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝','  ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗','  ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║','  ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝');$gc=@(171,141,129,93,57,54);$e=[char]27;$selected=0;try{[Console]::CursorVisible=$false;while($true){[Console]::Clear();for($li=0;$li -lt $art.Count;$li++){[Console]::WriteLine($e+'[38;5;'+$gc[$li]+'m'+$art[$li]+$e+'[0m')};[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::ForegroundColor='Magenta';[Console]::WriteLine('              RYKER Frida Engine Controller');[Console]::ResetColor();[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('                   discord.gg/bGkrWETD6');[Console]::WriteLine('   ----------------------------------------------------');[Console]::ResetColor();[Console]::WriteLine('');[Console]::WriteLine('    Up/Down or W/S = Navigate   Enter = Launch   D = Toggle Discord RPC');[Console]::WriteLine('    Discord RPC Status: '+$(if($rpc){'Enabled'}else{'Disabled'}));[Console]::WriteLine('');for($i=0;$i -lt $items.Count;$i++){if($i -eq $selected){[Console]::ForegroundColor='White';[Console]::BackgroundColor='DarkMagenta';[Console]::WriteLine(' > '+$items[$i]+' ');[Console]::ResetColor()}else{[Console]::ForegroundColor='DarkGray';[Console]::WriteLine('   '+$items[$i]);[Console]::ResetColor()}};$key=[Console]::ReadKey($true);if($key.Key -eq 'UpArrow' -or ($key.Key -eq 'W' -and -not $key.Modifiers)){$selected=($selected+$items.Count-1)%%$items.Count}elseif($key.Key -eq 'DownArrow' -or ($key.Key -eq 'S' -and -not $key.Modifiers)){$selected=($selected+1)%%$items.Count}elseif($key.Key -eq 'Enter'){Set-Content -LiteralPath $out -Value $ids[$selected];break}elseif($key.Key -eq 'D' -and -not $key.Modifiers){Set-Content -LiteralPath $out -Value 'toggle_rpc';break}}}finally{[Console]::ResetColor();[Console]::CursorVisible=$true}"
 if exist "%MENU_RESULT%" (
     set /p "MENU_PICK="<"%MENU_RESULT%"
     del /f /q "%MENU_RESULT%" >nul 2>&1
@@ -291,14 +298,13 @@ exit /b 0
 
 :banner
 cls
-echo %PURPLE%%BOLD%
-echo    ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗
-echo    ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗
-echo    ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝
-echo    ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗
-echo    ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║
-echo    ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝
-echo %RESET%
+echo %BOLD%%G1%   ██████╗  ██╗   ██╗ ██╗  ██╗ ███████╗ ██████╗%RESET%
+echo %BOLD%%G2%   ██╔══██╗ ╚██╗ ██╔╝ ██║ ██╔╝ ██╔════╝ ██╔══██╗%RESET%
+echo %BOLD%%G3%   ██████╔╝  ╚████╔╝  █████╔╝  █████╗   ██████╔╝%RESET%
+echo %BOLD%%G4%   ██╔══██╗   ╚██╔╝   ██╔═██╗  ██╔══╝   ██╔══██╗%RESET%
+echo %BOLD%%G5%   ██║  ██║    ██║    ██║  ██╗ ███████╗ ██║  ██║%RESET%
+echo %BOLD%%G6%   ╚═╝  ╚═╝    ╚═╝    ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝%RESET%
+echo.
 exit /b 0
 
 :_patchLauncher
