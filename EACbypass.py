@@ -47,11 +47,12 @@ def is_process_running(name):
 def inject_frida():
     bridge = os.path.join(SCRIPT_DIR, "ac_bridge.js")
     bypass = os.path.join(SCRIPT_DIR, "bypass.js")
+    quest = os.path.join(SCRIPT_DIR, "quest.ts")
     try:
         print(f"{LPURPLE}   [!] {RESET}Game detected! Injecting bypass...")
         print()
         subprocess.Popen(
-            ['cmd', '/k', 'frida', '-l', bridge, '-l', bypass, 'EACLauncher.exe'],
+            ['cmd', '/k', 'frida', '-l', bridge, '-l', bypass, '-l', quest, 'EACLauncher.exe'],
             creationflags=subprocess.CREATE_NEW_CONSOLE,
             cwd=SCRIPT_DIR
         )
