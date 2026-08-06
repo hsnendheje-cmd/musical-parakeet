@@ -1,3 +1,5 @@
+// wow you found the github link.
+// this is fully deobfuscated because I quit so I don't really care if it gets leaked
 const MENU_CREDITS = [
     { name: "Qstar", role: "made the menu" },
     { name: "Ryker", role: "Emotional Support For Qstar" },
@@ -2617,7 +2619,7 @@ Il2Cpp.perform(() => {
         addComponent(canvasObject, GraphicRaycaster);
         canvas.method("set_renderMode").invoke(2);
         canvasScaler.method("set_dynamicPixelsPerUnit").invoke(1000.0);
-        renderMenuText(canvasObject, "RYKER'S MENU [PAID]", textColor, [0.11, 0, 0.103], [titleWidth, titleHeight]);
+        renderMenuText(canvasObject, "Pornhub.com [PAID]", textColor, [0.11, 0, 0.103], [titleWidth, titleHeight]);
         if (_titleOverrideActive && _titleOverrideText) {
             renderMenuText(canvasObject, _titleOverrideText, textColor, [0.11, 0, 0.188], [titleWidth, 0.05]);
         }
